@@ -1,0 +1,565 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:form11v3="http://www.ros.ie/schemas/form11/v3/" xmlns:form11v4="http://www.ros.ie/schemas/form11/v4/" xmlns:form11v5="http://www.ros.ie/schemas/form11/v5/" xmlns:form11v6="http://www.ros.ie/schemas/form11/v6/" xmlns:form11v7="http://www.ros.ie/schemas/form11/v7/" xmlns:form11v8="http://www.ros.ie/schemas/form11/v8/" xmlns:form11v9="http://www.ros.ie/schemas/form11/v9/" xmlns:form11v10="http://www.ros.ie/schemas/form11/v10/" xmlns:form11v11="http://www.ros.ie/schemas/form11/v11/" xmlns:ct1v3="http://www.ros.ie/schemas/ct1/v3/" xmlns:ct1v4="http://www.ros.ie/schemas/ct1/v4/" xmlns:ct1v5="http://www.ros.ie/schemas/ct1/v5/" xmlns:ct1v6="http://www.ros.ie/schemas/ct1/v6/" xmlns:ct1v7="http://www.ros.ie/schemas/ct1/v7/" xmlns:ct1v8="http://www.ros.ie/schemas/ct1/v8/" xmlns:ct1v9="http://www.ros.ie/schemas/ct1/v9/" xmlns:ct1v10="http://www.ros.ie/schemas/ct1/v10/" xmlns:ct1v11="http://www.ros.ie/schemas/ct1/v11/" xmlns:client="http://www.ros.ie/schemas/client/" xmlns:inbox="http://www.ros.ie/schemas/inbox/" xmlns:transit="http://www.ros.ie/schemas/transit/" xmlns="http://www.ros.ie/schemas/service/" xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.ros.ie/schemas/rostypes/" targetNamespace="http://www.ros.ie/schemas/service/" name="ROSWebService" xmlns:form46gv1="http://www.ros.ie/schemas/form46g/v1/" xmlns:prepopformv1="http://www.ros.ie/schemas/prepopform/">
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v3/" location="form11/v3/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v4/" location="form11/v4/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v5/" location="form11/v5/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v6/" location="form11/v6/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v7/" location="form11/v7/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v8/" location="form11/v8/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v9/" location="form11/v9/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v10/" location="form11/v10/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v11/" location="form11/v11/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form11/v12/" location="form11/v12/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v3/" location="ct1/v3/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v4/" location="ct1/v4/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v5/" location="ct1/v5/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v6/" location="ct1/v6/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v7/" location="ct1/v7/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v8/" location="ct1/v8/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v9/" location="ct1/v9/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v10/" location="ct1/v10/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/ct1/v11/" location="ct1/v11/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/client/" location="client/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/inbox/" location="inbox/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/transit/" location="transit/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/form46g/v1/" location="form46g/v1/schema.xsd"/>
+	<wsdl:import namespace="http://www.ros.ie/schemas/prepopform/v1/" location="prepopform/v1/schema.xsd"/>
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ros.ie/schemas/service/">
+			<xsd:import namespace="http://www.ros.ie/schemas/rostypes/" schemaLocation="rostypes/schema.xsd"/>
+			<xsd:element name="Operation">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Form11/Calculate"/>
+						<xsd:enumeration value="Form11/File"/>
+						<xsd:enumeration value="CT1/Calculate"/>
+						<xsd:enumeration value="CT1/File"/>
+						<xsd:enumeration value="Inbox/List"/>
+						<xsd:enumeration value="Inbox/Document/Retrieve"/>
+						<xsd:enumeration value="Client/ClientList/Retrieve"/>
+						<xsd:enumeration value="Transit/File"/>
+						<xsd:enumeration value="Form46g/File"/>
+						<xsd:enumeration value="PrepopulatedForm/Download"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ROSFaultDetail" type="xsd:string"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="Form11v3Request">
+		<wsdl:part name="parameters" element="form11v3:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v3Response">
+		<wsdl:part name="return" element="form11v3:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v4Request">
+		<wsdl:part name="parameters" element="form11v4:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v4Response">
+		<wsdl:part name="return" element="form11v4:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v5Request">
+		<wsdl:part name="parameters" element="form11v5:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v5Response">
+		<wsdl:part name="return" element="form11v5:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v6Request">
+		<wsdl:part name="parameters" element="form11v6:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v6Response">
+		<wsdl:part name="return" element="form11v6:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v7Request">
+		<wsdl:part name="parameters" element="form11v7:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v7Response">
+		<wsdl:part name="return" element="form11v7:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v8Request">
+		<wsdl:part name="parameters" element="form11v8:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v8Response">
+		<wsdl:part name="return" element="form11v8:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v9Request">
+		<wsdl:part name="parameters" element="form11v9:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v9Response">
+		<wsdl:part name="return" element="form11v9:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v10Request">
+		<wsdl:part name="parameters" element="form11v10:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v10Response">
+		<wsdl:part name="return" element="form11v10:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v11Request">
+		<wsdl:part name="parameters" element="form11v11:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v11Response">
+		<wsdl:part name="return" element="form11v11:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v12Request">
+		<wsdl:part name="parameters" element="form11v12:Form11"/>
+	</wsdl:message>
+	<wsdl:message name="Form11v12Response">
+		<wsdl:part name="return" element="form11v12:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="InboxListRequest">
+		<wsdl:part name="parameters" element="inbox:DocumentSearch"/>
+	</wsdl:message>
+	<wsdl:message name="InboxListResponse">
+		<wsdl:part name="return" element="inbox:DocumentList"/>
+	</wsdl:message>
+	<wsdl:message name="InboxDocumentRetrieveRequest">
+		<wsdl:part name="parameters" element="inbox:DocumentSelection"/>
+	</wsdl:message>
+	<wsdl:message name="InboxDocumentRetrieveResponse">
+		<wsdl:part name="return" element="inbox:Document"/>
+	</wsdl:message>
+	<wsdl:message name="ClientClientListRetrieveRequest">
+		<wsdl:part name="parameters" element="client:ClientSearch"/>
+	</wsdl:message>
+	<wsdl:message name="ClientClientListRetrieveResponse">
+		<wsdl:part name="return" element="client:ClientList"/>
+	</wsdl:message>
+	<wsdl:message name="soapHeader">
+		<wsdl:part name="operation" element="Operation"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v3Request">
+		<wsdl:part name="parameters" element="ct1v3:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v3Response">
+		<wsdl:part name="return" element="ct1v3:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v4Request">
+		<wsdl:part name="parameters" element="ct1v4:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v4Response">
+		<wsdl:part name="return" element="ct1v4:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v5Request">
+		<wsdl:part name="parameters" element="ct1v5:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v5Response">
+		<wsdl:part name="return" element="ct1v5:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v6Request">
+		<wsdl:part name="parameters" element="ct1v6:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v6Response">
+		<wsdl:part name="return" element="ct1v6:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v7Request">
+		<wsdl:part name="parameters" element="ct1v7:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v7Response">
+		<wsdl:part name="return" element="ct1v7:Ct1Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v8Request">
+		<wsdl:part name="parameters" element="ct1v8:Ct1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v8Response">
+		<wsdl:part name="return" element="ct1v8:Ct1Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v9Request">
+		<wsdl:part name="parameters" element="ct1v9:FormCt1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v9Response">
+		<wsdl:part name="return" element="ct1v9:Ct1Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v10Request">
+		<wsdl:part name="parameters" element="ct1v10:FormCt1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v10Response">
+		<wsdl:part name="return" element="ct1v10:Ct1Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v11Request">
+		<wsdl:part name="parameters" element="ct1v11:FormCt1"/>
+	</wsdl:message>
+	<wsdl:message name="CT1v11Response">
+		<wsdl:part name="return" element="ct1v11:Ct1Acknowledgement"/>
+	</wsdl:message>	
+	<wsdl:message name="TransitFileRequest">
+		<wsdl:part name="parameters" element="transit:TransitFile"/>
+	</wsdl:message>
+	<wsdl:message name="TransitFileResponse">
+		<wsdl:part name="return" element="transit:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="Form46gv1Request">
+		<wsdl:part name="parameters" element="form46gv1:Form46G"/>
+	</wsdl:message>
+	<wsdl:message name="Form46gv1Response">
+		<wsdl:part name="return" element="form46gv1:Acknowledgement"/>
+	</wsdl:message>
+	<wsdl:message name="PrepopulatedFormDownloadv1Request">
+		<wsdl:part name="parameters" element="prepopformv1:PrepopulatedFormDownloadRequest"/>
+	</wsdl:message>
+	<wsdl:message name="PrepopulatedFormDownloadv1Response">
+		<wsdl:part name="return" element="prepopformv1:PrepopulatedFormDownloadResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="ROSPortType">
+		<wsdl:operation name="CT1v3">
+			<wsdl:input message="CT1v3Request"/>
+			<wsdl:output message="CT1v3Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v4">
+			<wsdl:input message="CT1v4Request"/>
+			<wsdl:output message="CT1v4Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v5">
+			<wsdl:input message="CT1v5Request"/>
+			<wsdl:output message="CT1v5Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v6">
+			<wsdl:input message="CT1v6Request"/>
+			<wsdl:output message="CT1v6Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v7">
+			<wsdl:input message="CT1v7Request"/>
+			<wsdl:output message="CT1v7Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v8">
+			<wsdl:input message="CT1v8Request"/>
+			<wsdl:output message="CT1v8Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v9">
+			<wsdl:input message="CT1v9Request"/>
+			<wsdl:output message="CT1v9Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v10">
+			<wsdl:input message="CT1v10Request"/>
+			<wsdl:output message="CT1v10Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v11">
+			<wsdl:input message="CT1v11Request"/>
+			<wsdl:output message="CT1v11Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v3">
+			<wsdl:input message="Form11v3Request"/>
+			<wsdl:output message="Form11v3Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v4">
+			<wsdl:input message="Form11v4Request"/>
+			<wsdl:output message="Form11v4Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v5">
+			<wsdl:input message="Form11v5Request"/>
+			<wsdl:output message="Form11v5Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v6">
+			<wsdl:input message="Form11v6Request"/>
+			<wsdl:output message="Form11v6Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v7">
+			<wsdl:input message="Form11v7Request"/>
+			<wsdl:output message="Form11v7Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v8">
+			<wsdl:input message="Form11v8Request"/>
+			<wsdl:output message="Form11v8Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v9">
+			<wsdl:input message="Form11v9Request"/>
+			<wsdl:output message="Form11v9Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v10">
+			<wsdl:input message="Form11v10Request"/>
+			<wsdl:output message="Form11v10Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v11">
+			<wsdl:input message="Form11v11Request"/>
+			<wsdl:output message="Form11v11Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v12">
+			<wsdl:input message="Form11v12Request"/>
+			<wsdl:output message="Form11v12Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="InboxList">
+			<wsdl:input message="InboxListRequest"/>
+			<wsdl:output message="InboxListResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="InboxDocumentRetrieve">
+			<wsdl:input message="InboxDocumentRetrieveRequest"/>
+			<wsdl:output message="InboxDocumentRetrieveResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="ClientClientListRetrieve">
+			<wsdl:input message="ClientClientListRetrieveRequest"/>
+			<wsdl:output message="ClientClientListRetrieveResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="TransitFile">
+			<wsdl:input message="TransitFileRequest"/>
+			<wsdl:output message="TransitFileResponse"/>
+		</wsdl:operation>
+		<wsdl:operation name="Form46gv1">
+			<wsdl:input message="Form46gv1Request"/>
+			<wsdl:output message="Form46gv1Response"/>
+		</wsdl:operation>
+		<wsdl:operation name="PrepopulatedFormDownloadv1">
+			<wsdl:input message="PrepopulatedFormDownloadv1Request"/>
+			<wsdl:output message="PrepopulatedFormDownloadv1Response"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ROSSoapBinding" type="ROSPortType">
+		<soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="CT1v3">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v4">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v5">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v6">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v7">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v8">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v9">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v10">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CT1v11">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v3">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v4">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v5">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v6">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v7">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v8">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v9">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v10">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v11">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form11v12">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InboxList">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InboxDocumentRetrieve">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ClientClientListRetrieve">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="TransitFile">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Form46gv1">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="PrepopulatedFormDownloadv1">
+			<soapbind:operation/>
+			<wsdl:input>
+				<soapbind:header message="soapHeader" part="operation" use="literal"/>
+				<soapbind:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soapbind:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="RevenueOnlineService">
+		<wsdl:port name="ROS" binding="ROSSoapBinding">
+			<soapbind:address location="http://www.ros.ie/service"/>
+		</wsdl:port>
+	</wsdl:service>
+	<!--
+		The Types section of the WSDL file declares all the Schema types, elements, 
+		and attributes that will be used all of the web services.
+	-->
+</wsdl:definitions>
